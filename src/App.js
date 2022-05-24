@@ -8,7 +8,7 @@ function App() {
   const [page, setPage] = useState(1);
 
   const pushNewValue = () => {
-    fetch("http://localhost:8080/todos", {
+    fetch("https://m6g3bt.sse.codesandbox.io/todos", {
       method: "POST",
       body: JSON.stringify({
         value: enteredValue,
@@ -17,12 +17,13 @@ function App() {
       headers: { "Content-type": "application/json" }
     }).then(res => res.json())
       .then(data => {
+        //console.log(todos);
         setTodos([...todos, data])
       });
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/todos?_page=${page}&_limit=4`)
+    fetch(`https://m6g3bt.sse.codesandbox.io/todos/?_page=${page}&_limit=5`)
       .then((res) => {
         return res.json();
       }).then((data) => {
@@ -40,7 +41,7 @@ function App() {
         </button>
         <h3>page number : {page}</h3>
         <button
-          onClick={() => page < 4 ? setPage(page + 1) : setPage(1)}
+          onClick={() => page < 100 ? setPage(page + 1) : setPage(1)}
         >{" >>>> "}
         </button>
       </div>

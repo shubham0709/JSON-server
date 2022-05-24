@@ -5,6 +5,7 @@ function App() {
 
   const [todos, setTodos] = useState([]);
   const [enteredValue, setEnteredValue] = useState("");
+  const [page, setPage] = useState(1);
 
   const pushNewValue = () => {
     fetch("http://localhost:8080/todos", {
@@ -21,17 +22,28 @@ function App() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:8080/todos/")
+    fetch(`http://localhost:8080/todos?_page=${page}&_limit=4`)
       .then((res) => {
         return res.json();
       }).then((data) => {
         setTodos(data);
         setEnteredValue("");
       })
-  }, [])
+  }, [page])
 
   return (
     <div className="App">
+      <div className="page_change">
+        <button
+          onClick={() => page > 1 ? setPage(page - 1) : setPage(1)}
+        >{" <<<< "}
+        </button>
+        <h3>page number : {page}</h3>
+        <button
+          onClick={() => page < 4 ? setPage(page + 1) : setPage(1)}
+        >{" >>>> "}
+        </button>
+      </div>
       <h1>Using JSON server and UseEffect</h1>
       <input onChange={(e) => setEnteredValue(e.target.value)} />
       <button

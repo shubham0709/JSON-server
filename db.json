@@ -44,6 +44,31 @@
       "value": "dr drain",
       "isCompleted": false,
       "id": 9
+    },
+    {
+      "value": "chinese",
+      "isCompleted": false,
+      "id": 10
+    },
+    {
+      "value": "japanese",
+      "isCompleted": false,
+      "id": 11
+    },
+    {
+      "value": "korean",
+      "isCompleted": false,
+      "id": 12
+    },
+    {
+      "value": "russian",
+      "isCompleted": false,
+      "id": 13
+    },
+    {
+      "value": "indonasian",
+      "isCompleted": false,
+      "id": 14
     }
   ]
 }
